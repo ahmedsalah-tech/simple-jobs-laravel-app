@@ -9,7 +9,7 @@
   <h1>Welcome to the simple-jobs Network</h1>
   <p>Click the button below to view the list of jobs.</p>
 
-  <a href="" class="btn">
+  <a href="/jobs" class="btn">
     Find Jobs!
   </a>
 </body>

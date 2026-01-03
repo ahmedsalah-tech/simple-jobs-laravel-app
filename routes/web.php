@@ -15,6 +15,10 @@ Route::get('/jobs', function () {
     return view('jobs.index', ["greeting" => "hello", "jobs" => $jobs]);
 });
 
+Route::get('/jobs/create', function() {
+    return view('jobs.create');
+});
+
 Route::get('/jobs/{id}',  function ($id) {
     // fetch data from DB with id
     return view('jobs.show', ["id" => $id]);

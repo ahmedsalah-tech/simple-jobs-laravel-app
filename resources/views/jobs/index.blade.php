@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Jobs Network | Home</title>
-</head>
-<body>
+<x-layout>
     <h2>Currently Available Jobs</h2>
-
-    @if ($greeting == "hello")
-        <p>Hi from if Statement</p>
-    @endif
 
     <ul>
         @foreach($jobs as $job)
@@ -20,5 +9,4 @@
             </li>
         @endforeach
     </ul>
-</body>
-</html>
+</x-layout>

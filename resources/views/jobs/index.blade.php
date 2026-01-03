@@ -8,19 +8,17 @@
 <body>
     <h2>Currently Available Jobs</h2>
 
-    <p>{{ $greeting }}</p>
+    @if ($greeting == "hello")
+        <p>Hi from if Statement</p>
+    @endif
 
     <ul>
-        <li>
-            <a href="/jobs/{{ $jobs[0]["id"] }}">
-                {{ $jobs[0]["name"] }}
-            </a>
-        </li>
-        <li>
-            <a href="/jobs/{{ $jobs[1]["id"] }}">
-                {{ $jobs[0]["name"] }}
-            </a>
-        </li>
+        @foreach($jobs as $job)
+            <li>
+                <p>{{ $job['name'] }}</p>
+                <a href="/jobs/{{ $job['id'] }}">View Details</a>
+            </li>
+        @endforeach
     </ul>
 </body>
 </html>

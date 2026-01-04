@@ -4,8 +4,9 @@
     <ul>
         @foreach($jobs as $job)
             <li>
-                <p>{{ $job['name'] }}</p>
-                <a href="/jobs/{{ $job['id'] }}">View Details</a>
+                <x-card href="/jobs/{{ $job['id'] }}" :highlight="$job['skill'] > 70 "> {{-- rendering a dynamic Prop --}}
+                    <h3>{{ $job['name'] }}</h3>
+                </x-card>
             </li>
         @endforeach
     </ul>

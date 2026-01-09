@@ -17,7 +17,6 @@ class JobController extends Controller
 
     public function show($id) {
         // route --> /jobs/{$id}
-
         // return 404 if not found
         $job = Work::findOrFail($id);
 

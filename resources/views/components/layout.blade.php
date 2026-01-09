@@ -12,8 +12,9 @@
     <header>
         <nav>
             <h1>Jobs Network</h1>
-            <a href="/jobs">All Jobs</a>
-            <a href="/jobs/create">Create New Jobs</a>
+            {{-- Built-in Helper function --}}
+            <a href="{{ route('jobs.index') }}">All Jobs</a>
+            <a href="{{ route('jobs.create') }}">Create New Jobs</a>
         </nav>
     </header>
 

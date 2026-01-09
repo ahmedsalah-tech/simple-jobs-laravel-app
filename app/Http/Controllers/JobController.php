@@ -10,7 +10,7 @@ class JobController extends Controller
     public function index() {
         // route --> /jobs/
         // get the jobs in timely order
-        $jobs = Work::orderBy('created_at', 'desc')->get();
+        $jobs = Work::orderBy('created_at', 'desc')->paginate(10);
 
         return view('jobs.index', ["jobs" => $jobs]);
     }

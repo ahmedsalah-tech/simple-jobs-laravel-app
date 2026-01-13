@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dojo;
 use Illuminate\Http\Request;
 use App\Models\Work;
 
@@ -24,6 +25,10 @@ class JobController extends Controller
     }
 
     public function create() {
-        return view('jobs.create');
+        // route --> /jobs/create
+        // get all dojos for the select dropdown
+        $dojos = Dojo::all();
+
+        return view('jobs.create', ['dojos' =>$dojos]);
     }
 }

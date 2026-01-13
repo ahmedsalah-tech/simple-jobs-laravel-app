@@ -1,5 +1,5 @@
 <x-layout>
-    <form action="" method="">
+    <form action="{{ route('jobs.store') }}" method="POST">
         @csrf
         <h2>Create a New Ninja</h2>
 
@@ -39,10 +39,10 @@
         <select id="dojo_id" name="dojo_id" required class="block w-full bg-white text-black border border-gray-300 rounded px-3 py-2 mt-1">
             <option value="" disabled selected>Select a dojo</option>
             @foreach ($dojos as $dojo)
-                {{-- 
-                    We set the option value to the Dojo's ID ($dojo->id) because 
-                    the backend database relationship requires the foreign key (int) 
-                    to associate the created job with a specific Dojo, rather than 
+                {{--
+                    We set the option value to the Dojo's ID ($dojo->id) because
+                    the backend database relationship requires the foreign key (int)
+                    to associate the created job with a specific Dojo, rather than
                     the Dojo's name or object.
                 --}}
                 <option value="{{ $dojo->id }}">

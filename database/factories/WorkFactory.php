@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Dojo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,8 @@ class WorkFactory extends Factory
         return [
             'name' => fake()->name(),
             'skill' => fake()->numberBetween(0, 100),
-            'bio' => fake()->realText()
+            'bio' => fake()->realText(),
+            'dojo_id' => Dojo::inRandomOrder()->first()->id,
         ];
     }
 }

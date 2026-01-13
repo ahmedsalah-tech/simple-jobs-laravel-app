@@ -6,4 +6,12 @@
         <p><strong>About Me: </strong></p>
         <p>{{ $job->bio }}</p>
     </div>
+
+    {{-- Dojos info --}}
+    <div class="border-2 border-dashed bg-white px-4 pb-4 my-4 rounded">
+        <p><strong>Dojo's name:</strong> {{ $job->dojo->name }}</p>
+        <p><strong>Location:</strong> {{ $job->dojo->location }}</p>
+        <p><strong>About the Dojo's:</strong></p>
+        <p>{{ $job->dojo->description }}</p>
+    </div>
 </x-layout>

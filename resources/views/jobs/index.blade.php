@@ -6,7 +6,10 @@
             <li>
                 {{-- using named route here --}}
                 <x-card href="{{ route('jobs.show', $job->id) }}" :highlight="$job['skill'] > 70 "> {{-- rendering a dynamic Prop --}}
-                    <h3>{{ $job->name }}</h3>
+                   <div>
+                     <h3>{{ $job->name }}</h3>
+                     <p>{{ $job->dojo->name }}</p>
+                   </div>
                 </x-card>
             </li>
         @endforeach

@@ -10,7 +10,7 @@ class JobController extends Controller
     public function index() {
         // route --> /jobs/
         // get the jobs in timely order
-        $jobs = Work::orderBy('created_at', 'desc')->paginate(10);
+        $jobs = Work::with('dojo')->orderBy('created_at', 'desc')->paginate(10); //  eager loading
 
         return view('jobs.index', ["jobs" => $jobs]);
     }
@@ -18,7 +18,7 @@ class JobController extends Controller
     public function show($id) {
         // route --> /jobs/{$id}
         // return 404 if not found
-        $job = Work::findOrFail($id);
+        $job = Work::with('dojo')->findOrFail($id);
 
         return view('jobs.show', ['job' => $job]);
     }

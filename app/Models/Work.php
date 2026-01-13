@@ -10,4 +10,8 @@ class Work extends Model  // looks for plural version of the table in the db
     protected $fillable = ['name', 'skill', 'bio']; // maps data to exact columns
     /** @use HasFactory<\Database\Factories\WorkFactory> */
     use HasFactory;
+
+    public function dojo() {
+        return $this->belongsTo(Dojo::class);
+    }
 }

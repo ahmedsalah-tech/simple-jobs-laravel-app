@@ -15,10 +15,26 @@
     @endif
     <header>
         <nav>
-            <h1>Jobs Network</h1>
+            <h1>
+                <a href="{{ route('jobs.index') }}">Ninja Network</a>
+            </h1>
             {{-- Built-in Helper function --}}
-            <a href="{{ route('jobs.index') }}">All Jobs</a>
-            <a href="{{ route('jobs.create') }}">Create New Jobs</a>
+
+            @guest {{-- only sshow to the unathenticated users --}}
+                <a href="{{ route('show.login') }}" class="btn">Login</a>
+                <a href="{{ route('show.register') }}" class="btn">Register</a>
+            @endguest
+
+            @auth {{-- only shows elemnts when the user is authenticated --}}
+                <span class="border-r-2 pr-2">
+                  Hi there, {{ Auth::user()->name }} {{-- Auth facade provides support for templating directves --}}
+                </span>
+                <a href="{{ route('jobs.create') }}">Create New Jobs</a>
+                <form action="{{ route('logout') }}" method="POST" class="m-0">
+                     @csrf
+                     <button class="btn">Logout</button>
+                </form>
+            @endauth
         </nav>
     </header>
 

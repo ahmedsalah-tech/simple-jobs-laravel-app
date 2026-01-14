@@ -45,8 +45,9 @@ class JobController extends Controller
         ]);
 
         Work::create($validated);
-
-        return redirect()->route('jobs.index');
+        
+        // access the flash messages from the seesion
+        return redirect()->route('jobs.index')->with('success', 'Job Created!');
     }
 
     public function destroy($id) {
@@ -56,6 +57,6 @@ class JobController extends Controller
         $job = Work::findOrFail($id);
         $job->delete();
 
-        return redirect()->route('jobs.index');
+        return redirect()->route('jobs.index')->with('success', 'Job Deleted!');
     }
 }

@@ -10,6 +10,6 @@ Route::get('/', function () {
 Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
 Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
 // Named Route to be dynamically called
-Route::get('/jobs/{id}',  [JobController::class, 'show'])->name('jobs.show');
+Route::get('/jobs/{job}',  [JobController::class, 'show'])->name('jobs.show'); // Route model binding
 Route::post('/jobs',  [JobController::class, 'store'])->name('jobs.store');
-Route::delete('/jobs/{id}',  [JobController::class, 'destroy'])->name('jobs.destroy');
+Route::delete('/jobs/{job}',  [JobController::class, 'destroy'])->name('jobs.destroy');

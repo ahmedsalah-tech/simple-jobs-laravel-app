@@ -14,4 +14,11 @@
         <p><strong>About the Dojo's:</strong></p>
         <p>{{ $job->dojo->description }}</p>
     </div>
+
+    <form action="{{ route('jobs.destroy', $job->id) }}" method="POST">
+        @csrf
+        @method('DELETE') {{-- makes a hidden input with delete as the attribute's value --}}
+
+        <button type="submit" class="btn my-4">Delete Job</button>
+    </form>
 </x-layout>

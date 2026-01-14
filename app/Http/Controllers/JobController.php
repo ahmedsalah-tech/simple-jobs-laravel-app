@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dojo;
 use Illuminate\Http\Request;
 use App\Models\Work;
+use PhpParser\Node\Expr\FuncCall;
 
 class JobController extends Controller
 {
@@ -44,6 +45,16 @@ class JobController extends Controller
         ]);
 
         Work::create($validated);
+
+        return redirect()->route('jobs.index');
+    }
+
+    public function destroy($id) {
+        // route -> /jobs/{id} DELETE
+        // handle a new DELETE request to delete a ninja record from table
+
+        $job = Work::findOrFail($id);
+        $job->delete();
 
         return redirect()->route('jobs.index');
     }

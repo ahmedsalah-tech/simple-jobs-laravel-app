@@ -12,3 +12,4 @@ Route::get('/jobs/create', [JobController::class, 'create'])->name('jobs.create'
 // Named Route to be dynamically called
 Route::get('/jobs/{id}',  [JobController::class, 'show'])->name('jobs.show');
 Route::post('/jobs',  [JobController::class, 'store'])->name('jobs.store');
+Route::delete('/jobs/{id}',  [JobController::class, 'destroy'])->name('jobs.destroy');

@@ -1,5 +1,5 @@
 <x-layout>
-    <form action="{{ route('jobs.store') }}" method="POST">
+    <form action="{{ route('jobs.store') }}" method="POST"> {{-- since it's named route --}}
         @csrf
         <h2>Create a New Ninja</h2>
 

@@ -19,6 +19,9 @@
             {{-- Built-in Helper function --}}
             <a href="{{ route('jobs.index') }}">All Jobs</a>
             <a href="{{ route('jobs.create') }}">Create New Jobs</a>
+
+            <a href="{{ route('show.login') }}" class="btn">Login</a>
+            <a href="{{ route('show.register') }}" class="btn">Register</a>
         </nav>
     </header>
 

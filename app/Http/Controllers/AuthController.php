@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -30,8 +31,23 @@ class AuthController extends Controller
         return redirect()->route('jobs.index');
     }
 
-    public function login () {
+    public function login (Request $request) {
+        // Validate method returns Check exception in which we can send to teh view
+        // by throwing the ValidationException Exception
+         $validated = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string' // hashed automatically in newer versions of Laravel
+        ]);
 
+        if (Auth::attempt($validated)) { // attempt method returns boolean and assigns a token to the validated user
+            $request->session()->regenerate(); // recommended since it prevents Fixation attacks
+
+            return redirect()->route('jobs.index');
+        }
+
+        throw ValidationException::withMessages([
+            'Credentials' => 'Sorry, Incorrect credentails'
+        ]);
     }
 
     public function logout (Request $request) {

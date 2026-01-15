@@ -15,13 +15,20 @@
     @endif
     <header>
         <nav>
-            <h1>Jobs Network</h1>
+            <h1>
+                <a href="{{ route('jobs.index') }}">Ninja Network</a>
+            </h1>
             {{-- Built-in Helper function --}}
             <a href="{{ route('jobs.index') }}">All Jobs</a>
             <a href="{{ route('jobs.create') }}">Create New Jobs</a>
 
             <a href="{{ route('show.login') }}" class="btn">Login</a>
             <a href="{{ route('show.register') }}" class="btn">Register</a>
+
+            <form action="{{ route('logout') }}" method="POST" class="m-0">
+                @csrf
+                <button class="btn">Logout</button>
+            </form>
         </nav>
     </header>
 

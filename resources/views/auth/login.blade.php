@@ -2,7 +2,7 @@
     <form action="{{ route('login') }}" method="POST">
         @csrf
 
-        <h2>Register for an Account</h2>
+         <h2>Log In to Your Account</h2>
 
         <label for="email">Email:</label>
         <input
@@ -21,7 +21,7 @@
             class="block w-full bg-white text-black border border-gray-300 rounded px-3 py-2 mt-1"
         >
 
-        <button type="submit" class="btn mt-4">Register</button>
+        <button type="submit" class="btn mt-4">Login</button>
 
         <!-- validation errors -->
 
